@@ -43,7 +43,7 @@ public class PlayerController : MonoBehaviour
     private void GroundMovement()
     {
         Vector3 move = new Vector3(turnInput, 0, moveInput);
-        move = cameraThird.transform.TransformDirection(move);
+       // move = cameraThird.transform.TransformDirection(move);
 
         if (Input.GetKey(KeyCode.LeftShift))
         {
