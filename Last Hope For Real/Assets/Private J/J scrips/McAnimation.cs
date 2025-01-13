@@ -9,6 +9,7 @@ public class Animation : MonoBehaviour
     private Animator Skeleton;
     private Rigidbody rb;
 
+    bool running;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,29 +21,47 @@ public class Animation : MonoBehaviour
     void Update()
     {
         float horizontal = Input.GetAxis("Horizontal");
-        float Vertical = Input.GetAxis("Vertical");
-        if (horizontal > 0 || Vertical > 0)
+        float Vertical = Input.GetAxis("Vertical");     
+
+        Vector3 movement = new Vector3(horizontal, 0, Vertical) * speed * Time.deltaTime;
+
+      
+
+        rb.MovePosition(transform.position + movement);
+        
+        if (Input.GetKeyDown(KeyCode.LeftShift))
         {
+            speed = Runspeed;
+            running = true;
 
-            Vector3 movement = new Vector3(horizontal, 0, Vertical) * speed * Time.deltaTime;
-          
 
-
-            rb.MovePosition(transform.position + movement);
-            if (Input.GetKeyDown(KeyCode.LeftShift))
+        }
+        else if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            speed = 5f;
+            running = false;
+            
+        }
+        if(horizontal == 0 && Vertical == 0)
+        {
+            speed = 0f;
+            running = false;
+        }
+        else
+        {
+            if(!running)
+            {
+              speed = 5f;
+            }
+            else
             {
                 speed = Runspeed;
             }
-            else if (Input.GetKeyUp(KeyCode.LeftShift))
-            {
-                speed = 5f;
-            }
+            
         }
-        else 
-        {
-            speed = 0;
-        }
-       
-            Skeleton.SetFloat("speed", speed);
+        
+        Debug.Log(movement.magnitude);
+
+        Skeleton.SetFloat("speed", speed);
     }
 }
