@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Animation : MonoBehaviour
 {
-    [SerializeField] float speed = 10f;
+    [SerializeField] float speed = 0f;
+    [SerializeField] float Runspeed = 10f;
     private Animator Skeleton;
     private Rigidbody rb;
 
@@ -20,10 +21,28 @@ public class Animation : MonoBehaviour
     {
         float horizontal = Input.GetAxis("Horizontal");
         float Vertical = Input.GetAxis("Vertical");
+        if (horizontal > 0 || Vertical > 0)
+        {
 
-        Vector3 movement = new Vector3(horizontal, 0, Vertical) * speed * Time.deltaTime;
-        rb.MovePosition(transform.position + movement);
+            Vector3 movement = new Vector3(horizontal, 0, Vertical) * speed * Time.deltaTime;
+          
 
-        Skeleton.SetFloat("speed", movement.magnitude);
+
+            rb.MovePosition(transform.position + movement);
+            if (Input.GetKeyDown(KeyCode.LeftShift))
+            {
+                speed = Runspeed;
+            }
+            else if (Input.GetKeyUp(KeyCode.LeftShift))
+            {
+                speed = 5f;
+            }
+        }
+        else 
+        {
+            speed = 0;
+        }
+       
+            Skeleton.SetFloat("speed", speed);
     }
 }
