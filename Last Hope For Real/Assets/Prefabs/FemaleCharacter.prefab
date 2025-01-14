@@ -2128,7 +2128,7 @@ GameObject:
   - component: {fileID: 7873942451421964451}
   m_Layer: 0
   m_Name: FemaleCharacter
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2195,6 +2195,8 @@ MonoBehaviour:
   turningSpeed: 4
   gravity: 9.81
   jumpHeight: 0.2
+  health: 100
+  healthMax: 100
 --- !u!1 &6093955652382104020
 GameObject:
   m_ObjectHideFlags: 0
