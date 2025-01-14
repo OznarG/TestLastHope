@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour, IDamage
 {
     [Header("References")]
     private CharacterController controller;
@@ -16,6 +16,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float turningSpeed = 2f;
     [SerializeField] private float gravity = 9.81f;
     [SerializeField] private float jumpHeight = 0.2f;
+    [SerializeField] float health = 100;
+    [SerializeField] float healthMax = 100;
+
 
 
     private float verticalVelovity;
@@ -91,5 +94,16 @@ public class PlayerController : MonoBehaviour
     {
         moveInput = Input.GetAxis("Vertical");
         turnInput = Input.GetAxis("Horizontal");
+    }
+    public void TakeDamage(float damage)
+    {
+        health -= damage;
+        Debug.Log("you took " + damage + " Now health is " + health);
+        UpdatePlayerHealth();
+    }
+
+    public void UpdatePlayerHealth()
+    {
+        gameManager.instance.playerHealthBar.fillAmount = health / healthMax;
     }
 }
