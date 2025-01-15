@@ -1064,7 +1064,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8692852239024477013}
-  - component: {fileID: 7463923166595103181}
+  - component: {fileID: 6508460971176170746}
   - component: {fileID: 7948823049716669205}
   - component: {fileID: 4243466899758415849}
   - component: {fileID: 704660409059332854}
@@ -1096,7 +1096,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &7463923166595103181
+--- !u!114 &6508460971176170746
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
