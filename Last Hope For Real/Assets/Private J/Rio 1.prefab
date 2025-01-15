@@ -1835,9 +1835,9 @@ MonoBehaviour:
   walkSpeed: 5
   spritSpeed: 10
   spritAcceleration: 5
-  turningSpeed: 2
+  turningSpeed: 5
   gravity: 9.81
-  jumpHeight: 0.2
+  jumpHeight: 1
   health: 100
   healthMax: 100
   playerDead: 0

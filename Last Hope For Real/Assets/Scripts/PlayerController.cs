@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour, IDamage
     private float verticalVelovity;
     private float speed;
     public bool playerDead;
+    public bool isgrouded;
 
     [Header("Input")]
     private float moveInput;
@@ -77,6 +78,7 @@ public class PlayerController : MonoBehaviour, IDamage
     }
     private float VerticalForceCalculation()
     {
+        isgrouded = controller.isGrounded;
         if (controller.isGrounded)
         {
             verticalVelovity = -1f;
