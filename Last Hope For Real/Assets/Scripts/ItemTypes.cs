@@ -1,6 +1,6 @@
 using System;
 public enum ItemType
 {
-    Food, Material, Weapon
+    Food, Material, Weapon, yes
 }
 
