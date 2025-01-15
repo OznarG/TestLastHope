@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour, IDamage
 
     private float verticalVelovity;
     private float speed;
+    public bool playerDead;
 
     [Header("Input")]
     private float moveInput;
