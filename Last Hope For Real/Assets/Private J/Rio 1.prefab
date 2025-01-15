@@ -1797,7 +1797,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 59f28686c4dc2f249869aad5509e25b1, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
@@ -1831,16 +1831,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99f746f021d6d354582e14f7d7df1ad1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  controller: {fileID: 0}
   cameraThird: {fileID: 0}
   walkSpeed: 5
   spritSpeed: 10
   spritAcceleration: 5
-  turningSpeed: 2
+  turningSpeed: 5
   gravity: 9.81
-  jumpHeight: 0.2
+  jumpHeight: 0.4
   health: 100
   healthMax: 100
   playerDead: 0
+  isgrouded: 0
 --- !u!143 &5864111373671978630
 CharacterController:
   m_ObjectHideFlags: 0
@@ -1860,13 +1862,13 @@ CharacterController:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Height: 2
+  m_Height: 1.87
   m_Radius: 0.5
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0.99, z: 0}
+  m_Center: {x: 0, y: 0.88, z: 0}
 --- !u!1 &7062153555395563592
 GameObject:
   m_ObjectHideFlags: 0
