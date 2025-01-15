@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,6 +11,7 @@ public class gameManager : MonoBehaviour
 
     [Header("---- Script References -----")]
     public PlayerController playerScript;
+    //public ItemTypes items;
 
     [Header("---- UI references-----")]
     public Image playerHealthBar;
@@ -24,6 +26,7 @@ public class gameManager : MonoBehaviour
     void Awake()
     {
         instance = this;
+        
     }
 
     // Update is called once per frame

@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour, IDamage
 {
     [Header("References")]
-    private CharacterController controller;
+    public CharacterController controller;
     [SerializeField] private Transform cameraThird;
 
     [Header("Movement Settings")]
@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour, IDamage
     private float verticalVelovity;
     private float speed;
     public bool playerDead;
+    public bool isgrouded;
 
     [Header("Input")]
     private float moveInput;
@@ -77,6 +78,7 @@ public class PlayerController : MonoBehaviour, IDamage
     }
     private float VerticalForceCalculation()
     {
+        isgrouded = controller.isGrounded;
         if (controller.isGrounded)
         {
             verticalVelovity = -1f;
