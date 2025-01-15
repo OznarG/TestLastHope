@@ -33,7 +33,7 @@ public class AnimatorCOntroller : MonoBehaviour
         
 
 
-        if (Input.GetKeyDown(KeyCode.Space) && !gameManager.instance.playerScript.controller.isGrounded)
+        if (Input.GetKeyDown(KeyCode.Space) && !gameManager.instance.playerScript.controller.isGrounded )
         {
 
             //  transform.Translate(Vector3.up * 5 * Time.deltaTime);
