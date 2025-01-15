@@ -19,15 +19,17 @@ public class AnimatorCOntroller : MonoBehaviour
     void Update()
     {
         
-        float move = Input.GetAxis("Vertical");
-        float speed = Mathf.Abs(move) / Maxspeed;
+        float moveV = Input.GetAxis("Vertical");
+        float moveH = Input.GetAxis("Horizontal");
+        float move = Mathf.Max(Mathf.Abs(moveV), Mathf.Abs(moveH));
+        float speed = move / Maxspeed;
         float adjustedSpeed = speed * 3.5f;
         animator.SetFloat("speed", adjustedSpeed);
 
-        if (!Combat)
+        /*if (!Combat)
         { 
             transform.Translate(Vector3.forward * move * Time.deltaTime);
-        }
+        }*/
         
 
 
