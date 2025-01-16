@@ -30,6 +30,12 @@ public class PlayerController : MonoBehaviour, IDamage
     private float moveInput;
     private float turnInput;
 
+    [Header("----- Player Belt -----")]
+    int beltAmount;
+    [SerializeField] GameObject belt;
+    public GameObject[] playerBelt;
+    public int currentBeltSelection;
+
     private void Start()
     {
         controller = GetComponent<CharacterController>();
@@ -48,7 +54,7 @@ public class PlayerController : MonoBehaviour, IDamage
     private void GroundMovement()
     {
         Vector3 move = new Vector3(turnInput, 0, moveInput);
-       // move = cameraThird.transform.TransformDirection(move);
+        move = cameraThird.transform.TransformDirection(move);
 
         if (Input.GetKey(KeyCode.LeftShift))
         {
@@ -67,12 +73,24 @@ public class PlayerController : MonoBehaviour, IDamage
     {
         if (Mathf.Abs(turnInput) > 0 || Mathf.Abs(moveInput) > 0)
         {
-            Vector3 currentLookDirection = controller.velocity.normalized;
-            currentLookDirection.y = 0;
-            currentLookDirection.Normalize();
+            //Vector3 currentLookDirection = controller.velocity.normalized;
+            //currentLookDirection.y = 0;
+            //currentLookDirection.Normalize();
 
-            Quaternion targetRotation = Quaternion.LookRotation(currentLookDirection);
+            //Quaternion targetRotation = Quaternion.LookRotation(currentLookDirection);
 
+            //transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * turningSpeed);
+
+            // Calculate the camera's forward direction on the XZ plane
+            Vector3 cameraForward = cameraThird.forward; 
+            cameraForward.y = 0; 
+            // Ignore the Y component
+            cameraForward.Normalize(); // Calculate the current movement direction relative to the camera
+            Vector3 moveDirection = new Vector3(turnInput, 0, moveInput).normalized; 
+            Vector3 currentLookDirection = cameraThird.TransformDirection(moveDirection); currentLookDirection.y = 0; // Ignore the Y component
+            currentLookDirection.Normalize(); // Calculate the desired rotation towards the current look direction
+            Quaternion targetRotation = Quaternion.LookRotation(currentLookDirection); 
+            // Apply the desired rotation to the character
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * turningSpeed);
         }
     }
