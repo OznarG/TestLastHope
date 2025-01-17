@@ -1587,37 +1587,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1624329570}
     - target: {fileID: 3282283051282905782, guid: efd0016122f28a447a0cbaf8606fa40a, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3282283051282905782, guid: efd0016122f28a447a0cbaf8606fa40a, type: 3}
-      propertyPath: controller
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3282283051282905782, guid: efd0016122f28a447a0cbaf8606fa40a, type: 3}
-      propertyPath: jumpHeight
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3282283051282905782, guid: efd0016122f28a447a0cbaf8606fa40a, type: 3}
       propertyPath: cameraThird
       value: 
       objectReference: {fileID: 1897608900}
-    - target: {fileID: 3968616802748721905, guid: efd0016122f28a447a0cbaf8606fa40a, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4233894294124953708, guid: efd0016122f28a447a0cbaf8606fa40a, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 59f28686c4dc2f249869aad5509e25b1, type: 2}
-    - target: {fileID: 4233894294124953708, guid: efd0016122f28a447a0cbaf8606fa40a, type: 3}
-      propertyPath: m_ApplyRootMotion
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5864111373671978630, guid: efd0016122f28a447a0cbaf8606fa40a, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7004346078578954899, guid: efd0016122f28a447a0cbaf8606fa40a, type: 3}
       propertyPath: m_Name
       value: Rio 1
