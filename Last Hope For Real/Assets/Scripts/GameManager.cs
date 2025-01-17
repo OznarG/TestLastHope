@@ -20,6 +20,13 @@ public class gameManager : MonoBehaviour
     public GameObject pauseMenu;
     public GameObject looseMenu;
 
+    [Header("----- Inventory Management -----")]
+    public GameObject previuslySelectedSlot = null;
+    public GameObject selectedSlot = null;
+    public Color backgroundColor;
+    public AudioSource inventoryAud;
+    public AudioClip pickup;
+
     // Start is called before the first frame update
     void Awake()
     {

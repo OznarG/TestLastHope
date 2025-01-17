@@ -1360,6 +1360,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 5
+--- !u!223 &1468123852 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 7948823049716669205, guid: 07773a397b438dd4299fd120fdb65088, type: 3}
+  m_PrefabInstance: {fileID: 4496558255623062380}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1468123854 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8692852239024477013, guid: 07773a397b438dd4299fd120fdb65088, type: 3}
@@ -1851,7 +1856,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2053091506}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2053091508}
+        m_TargetAssemblyTypeName: Slot, Assembly-CSharp
+        m_MethodName: SelectThis
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2053091506
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1914,7 +1931,7 @@ MonoBehaviour:
   addAmount: 0
   usable: 0
   selected: 0
-  canvas: {fileID: 0}
+  canvas: {fileID: 1468123852}
 --- !u!1 &2121757727
 GameObject:
   m_ObjectHideFlags: 0
