@@ -149,4 +149,41 @@ public class PlayerController : MonoBehaviour, IDamage
     {
         gameManager.instance.playerHealthBar.fillAmount = health / healthMax;
     }
+    public bool PlayerBeltHaveSpace(Item stats)
+    {
+        for (int i = 0; i < beltAmount; i++)
+        {
+            //Check if the item can be fit or not
+            if (playerBelt[i].GetComponentInChildren<Slot>().GetID() == 0 || playerBelt[i].GetComponentInChildren<Slot>().GetID() == stats.ID && playerBelt[i].GetComponent<Slot>().GetItemStackAmount() < stats.stackMax)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public bool AddItem(Item stats)
+    {
+        for (int i = 0; i < beltAmount; i++)
+        {
+            if (playerBelt[i].GetComponent<Slot>().GetItemStackAmount() == 0)
+            {
+                playerBelt[i].GetComponent<Slot>().IncrementStackBy(1);
+                playerBelt[i].GetComponent<Slot>().AddItemToSlot(stats.ID, stats.type, stats.itemName, stats.description, stats.stackMax, stats.icon, stats.itemPrefab, stats.amountToAdd, stats.usable);
+                playerBelt[i].GetComponent<Slot>().UpdateSlot();
+                gameManager.instance.inventoryAud.PlayOneShot(gameManager.instance.pickup);
+                return true;
+            }
+            else if (playerBelt[i].transform.GetComponent<Slot>().GetID() == stats.ID && playerBelt[i].GetComponent<Slot>().GetItemStackAmount() < stats.stackMax)
+            {
+                //Possible Error if item are not added correctly check here ----------< >
+                playerBelt[i].GetComponent<Slot>().IncrementStackBy(1);
+                playerBelt[i].GetComponent<Slot>().UpdateSlot();
+                gameManager.instance.inventoryAud.PlayOneShot(gameManager.instance.pickup);
+                return true;
+            }
+            gameManager.instance.selectedSlot.GetComponentInParent<SlotBackground>().UpdateSelection();
+        }
+        return false;
+    }
 }

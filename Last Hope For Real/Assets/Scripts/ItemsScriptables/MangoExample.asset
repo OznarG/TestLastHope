@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93b3362cf55f21447864abad0ec6a512, type: 3}
   m_Name: MangoExample
   m_EditorClassIdentifier: 
-  ID: 0
+  ID: 2
   type: 0
   itemName: 
   description: 
-  stackMax: 0
+  stackMax: 1
   usable: 0
   amountToAdd: 0
-  icon: {fileID: 21300000, guid: 05ae5b27f62190b4da657741df56fafd, type: 3}
-  itemPrefab: {fileID: 0}
+  icon: {fileID: 21300000, guid: 33ba85d5fc7cbab4a9dcd8dc35e31542, type: 3}
+  itemPrefab: {fileID: 7237896029254061197, guid: b6e6f6cf03dd34f4a8c392646cf8fffd, type: 3}
