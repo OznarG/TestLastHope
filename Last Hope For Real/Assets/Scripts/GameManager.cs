@@ -73,6 +73,23 @@ public class gameManager : MonoBehaviour
 
     public void UnPauseGame()
     {
+        if (activeMenu == playerInventoryScript.isOpen)
+        {
+            //Need replaced with belt
+            selectedSlot.GetComponentInParent<SlotBackground>().selected = false;
+            selectedSlot.GetComponentInParent<SlotBackground>().UpdateSelection();
+            selectedSlot = previuslySelectedSlot;
+            selectedSlot.GetComponentInParent<SlotBackground>().selected = true;
+            selectedSlot.GetComponentInParent<SlotBackground>().UpdateSelection();
+
+            playerInventoryScript.isOpen = false;
+            instance.playerInventory.SetActive(false);
+            //***IMPLEMENT WHEN I ADD WEAPON ****
+            //if (selectedSlot.GetComponentInParent<SlotBackground>().GetComponentInChildren<Slot>().GetItemType() == 10)
+            //{
+            //    playerScript.currentWeapon.SetActive(true);
+            //}
+        }
 
         Time.timeScale = 1;
         isPaused = false;
@@ -80,5 +97,29 @@ public class gameManager : MonoBehaviour
         //Cursor.lockState = CursorLockMode.Locked;
         activeMenu.SetActive(false);
         activeMenu = null;
+    }
+
+    public void ToggleInventory()
+    {
+        if (!instance.isPaused)
+        {
+            //open Inventory and set as main
+            instance.playerInventory.SetActive(true);
+            instance.activeMenu = instance.playerInventory;
+            instance.isPaused = true;
+            instance.playerInventoryScript.isOpen = true;
+            //NEED TO IMPLEMENT THIS IF WE ADD A BACK BUTTON ON THE MENU  ---------<===>
+            //instance.playerinventoryScrpt.backButton.SetActive(false);
+            previuslySelectedSlot = selectedSlot;
+            //if(playerScript.currentWeapon != null)
+            //{
+            //  playerScript.currentWeapon.SetActive(false);
+            //}           
+            instance.PauseGame();
+        }
+        else if (instance.activeMenu == instance.playerInventory)
+        {
+            instance.UnPauseGame();
+        }
     }
 }

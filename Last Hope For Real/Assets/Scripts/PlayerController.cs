@@ -38,7 +38,25 @@ public class PlayerController : MonoBehaviour, IDamage
 
     private void Start()
     {
+        //Get slots and add them to an array, set player belt slot ID to 200 - 203
+        beltAmount = belt.transform.childCount;
+        playerBelt = new GameObject[beltAmount];
+        for (int i = 0; i < beltAmount; i++)
+        {
+            playerBelt[i] = belt.transform.GetChild(i).GetChild(0).gameObject;
+            playerBelt[i].GetComponentInParent<SlotBackground>().SlotID = i + 200;
+        }
+        //Set First Slot of belt as Selected
+        gameManager.instance.selectedSlot = playerBelt[0];
+        gameManager.instance.previuslySelectedSlot = playerBelt[0];
         controller = GetComponent<CharacterController>();
+        //Open and close inventory to populate
+        gameManager.instance.ToggleInventory();
+        gameManager.instance.UnPauseGame();
+        //Enable visuals of inventory of selcted slot
+        gameManager.instance.selectedSlot.GetComponentInParent<SlotBackground>().selected = true;
+        gameManager.instance.selectedSlot.GetComponentInParent<SlotBackground>().UpdateSelection();
+        //Player Health
     }
     private void Update()
     {
@@ -113,6 +131,10 @@ public class PlayerController : MonoBehaviour, IDamage
     }
     private void InputManagement()
     {
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            gameManager.instance.ToggleInventory();
+        }
         moveInput = Input.GetAxis("Vertical");
         turnInput = Input.GetAxis("Horizontal");
     }
