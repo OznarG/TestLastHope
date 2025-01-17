@@ -4,21 +4,28 @@ using UnityEngine;
 
 public class AnimatorCOntroller : MonoBehaviour
 {
+
+    private CharacterController controller;
     [SerializeField] float Maxspeed = 2.0f;
     private Animator animator;
-    public bool Combat = false;
-    
+    public bool isGrounded;
+    private bool isRolling;
 
     // Start is called before the first frame update
     void Start()
     {
+
+        controller = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        isGrounded = controller.isGrounded;
+
+
         float moveV = Input.GetAxis("Vertical");
         float moveH = Input.GetAxis("Horizontal");
         float move = Mathf.Max(Mathf.Abs(moveV), Mathf.Abs(moveH));
@@ -26,43 +33,49 @@ public class AnimatorCOntroller : MonoBehaviour
         float adjustedSpeed = speed * 3.5f;
         animator.SetFloat("speed", adjustedSpeed);
 
-        /*if (!Combat)
-        { 
-            transform.Translate(Vector3.forward * move * Time.deltaTime);
-        }*/
-        
+       
+            if (Input.GetKeyDown(KeyCode.Space) && !isRolling)
+            {
 
+               
+                animator.SetBool("jump", true);
 
-        if (Input.GetKeyDown(KeyCode.Space) && !gameManager.instance.playerScript.controller.isGrounded )
-        {
-
-            //  transform.Translate(Vector3.up * 5 * Time.deltaTime);
-            animator.SetBool("jump", true);
-
-        } else if (Input.GetKeyUp(KeyCode.Space) )
+            } else
         {
             animator.SetBool("jump", false);
         }
+                
+           
+                
+        
         if(Input.GetKeyDown(KeyCode.LeftShift))
         {
             Maxspeed = 1.0f;
-
-        }else if (Input.GetKeyUp(KeyCode.LeftShift) && !Combat)
+            Debug.Log("Shift key held down, max speed set to 1.0f");
+        }
+        else if (Input.GetKeyUp(KeyCode.LeftShift))
         {
 
             Maxspeed = 2.0f;
+           
         }
       
 
-        if (Input.GetKeyDown(KeyCode.E))
+       
+        if(Input.GetKeyDown(KeyCode.LeftControl) && move > 0.5f && !isRolling)
         {
-            animator.SetBool("combat", true);
-            Combat = true;
-        }else if (Input.GetKeyDown(KeyCode.Q))
-        {
-            Combat = !true;
-            animator.SetBool("combat", !true);
+            isRolling = true;
+            animator.SetBool("roll", true);
+            Debug.Log("is rolling true");
+            
         }
+       
 
+
+    }
+    public void EndRoll() {
+        isRolling = false; 
+        animator.SetBool("roll", false);
+        Debug.Log("is rolling false");
     }
 }
