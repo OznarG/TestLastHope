@@ -88,24 +88,24 @@ public class Slot : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndD
         if (!isDragging)
         {
             //if this is set as selected
-            //if (transform.GetComponentInParent<SlotBackground>().selected)
-            //{
-            //    //unselect it because it wwas clicked again
-            //    //transform.GetComponentInParent<SlotBackground>().selected = false;
-            //    //gameManager.instance.selectedSlot.GetComponentInParent<SlotBackground>().UpdateSelection();
-            //
-            //}
-            //else
-            //{
-            //    //if is not selected set selected to false and update to change its color and avoid errors
-            //    //gameManager.instance.selectedSlot.GetComponentInParent<SlotBackground>().selected = false;
-            //    //gameManager.instance.selectedSlot.GetComponentInParent<SlotBackground>().UpdateSelection();
-            //    //now set the selectedSlot to this one
-            //    //gameManager.instance.selectedSlot = transform.gameObject;
-            //    //update it to selected and change color 
-            //    //gameManager.instance.selectedSlot.GetComponentInParent<SlotBackground>().selected = true;
-            //    //gameManager.instance.selectedSlot.GetComponentInParent<SlotBackground>().UpdateSelection();
-            //}
+            if (transform.GetComponentInParent<SlotBackground>().selected)
+            {
+                //unselect it because it wwas clicked again
+                transform.GetComponentInParent<SlotBackground>().selected = false;
+                gameManager.instance.selectedSlot.GetComponentInParent<SlotBackground>().UpdateSelection();
+            
+            }
+            else
+            {
+                //if is not selected set selected to false and update to change its color and avoid errors
+                gameManager.instance.selectedSlot.GetComponentInParent<SlotBackground>().selected = false;
+                gameManager.instance.selectedSlot.GetComponentInParent<SlotBackground>().UpdateSelection();
+                //now set the selectedSlot to this one
+                gameManager.instance.selectedSlot = transform.gameObject;
+                //update it to selected and change color 
+                gameManager.instance.selectedSlot.GetComponentInParent<SlotBackground>().selected = true;
+                gameManager.instance.selectedSlot.GetComponentInParent<SlotBackground>().UpdateSelection();
+            }
         }
     }
 

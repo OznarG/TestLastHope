@@ -10,6 +10,7 @@ public class gameManager : MonoBehaviour
 
     [Header("---- Script References -----")]
     public PlayerController playerScript;
+    public Inventory playerInventoryScript;
 
     [Header("---- UI references-----")]
     public Image playerHealthBar;
@@ -19,6 +20,7 @@ public class gameManager : MonoBehaviour
     public GameObject activeMenu;
     public GameObject pauseMenu;
     public GameObject looseMenu;
+    public GameObject playerInventory;
 
     [Header("----- Inventory Management -----")]
     public GameObject previuslySelectedSlot = null;
@@ -30,7 +32,15 @@ public class gameManager : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        instance = this;
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+        playerInventoryScript = playerInventory.GetComponent<Inventory>();
     }
 
     // Update is called once per frame
