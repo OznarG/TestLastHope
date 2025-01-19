@@ -22,15 +22,16 @@ public class sound : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space)) 
-        {
-            audio.time = StartTime;
-            audio.Play();
-            StartCoroutine(StopAudioAfterTime(endTime - StartTime));
-        }
+        
     }
     private IEnumerator StopAudioAfterTime(float delay) 
     { yield return new WaitForSeconds(delay);
         audio.Stop();
+    }
+    public void JUMP()
+    {
+        audio.time = StartTime;
+        audio.Play();
+        StartCoroutine(StopAudioAfterTime(endTime - StartTime));
     }
 }
