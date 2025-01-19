@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93b3362cf55f21447864abad0ec6a512, type: 3}
+  m_Name: MushroomItem
+  m_EditorClassIdentifier: 
+  ID: 103
+  type: 0
+  itemName: Mushroom
+  description: Can eat
+  stackMax: 5
+  usable: 1
+  amountToAdd: 10
+  icon: {fileID: 21300000, guid: 05ae5b27f62190b4da657741df56fafd, type: 3}
+  itemPrefab: {fileID: 1487011666458245036, guid: e6c4aced8235fdd4ebf654c2f43774d6, type: 3}
