@@ -1590,10 +1590,6 @@ PrefabInstance:
       propertyPath: cameraThird
       value: 
       objectReference: {fileID: 1897608900}
-    - target: {fileID: 5313929610836097296, guid: efd0016122f28a447a0cbaf8606fa40a, type: 3}
-      propertyPath: m_Volume
-      value: 0.239
-      objectReference: {fileID: 0}
     - target: {fileID: 7004346078578954899, guid: efd0016122f28a447a0cbaf8606fa40a, type: 3}
       propertyPath: m_Name
       value: Rio 1
