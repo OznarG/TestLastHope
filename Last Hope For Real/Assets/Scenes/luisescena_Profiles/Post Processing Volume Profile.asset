@@ -1,5 +1,52 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7261289862634491654
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48a79b01ea5641d4aa6daa2e23605641, type: 3}
+  m_Name: Bloom
+  m_EditorClassIdentifier: 
+  active: 0
+  enabled:
+    overrideState: 1
+    value: 1
+  intensity:
+    overrideState: 1
+    value: 0.08
+  threshold:
+    overrideState: 0
+    value: 1
+  softKnee:
+    overrideState: 0
+    value: 0.5
+  clamp:
+    overrideState: 0
+    value: 65472
+  diffusion:
+    overrideState: 0
+    value: 7
+  anamorphicRatio:
+    overrideState: 0
+    value: 0
+  color:
+    overrideState: 0
+    value: {r: 1, g: 1, b: 1, a: 1}
+  fastMode:
+    overrideState: 0
+    value: 0
+  dirtTexture:
+    overrideState: 0
+    value: {fileID: 0}
+    defaultState: 1
+  dirtIntensity:
+    overrideState: 0
+    value: 0
 --- !u!114 &-6065617294897290391
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -18,7 +65,7 @@ MonoBehaviour:
     value: 1
   filtering:
     overrideState: 1
-    value: {x: 50, y: 95}
+    value: {x: 54.000053, y: 99}
   minLuminance:
     overrideState: 1
     value: 0
@@ -54,14 +101,14 @@ MonoBehaviour:
     overrideState: 1
     value: 1
   mode:
-    overrideState: 0
-    value: 1
+    overrideState: 1
+    value: 0
   intensity:
     overrideState: 1
-    value: 3.9
+    value: 3.73
   color:
     overrideState: 1
-    value: {r: 0.754717, g: 0.754717, b: 0.754717, a: 1}
+    value: {r: 0.7924528, g: 0.7924528, b: 0.7924528, a: 1}
   ambientOnly:
     overrideState: 0
     value: 1
@@ -75,11 +122,11 @@ MonoBehaviour:
     overrideState: 0
     value: -12
   thicknessModifier:
-    overrideState: 0
+    overrideState: 1
     value: 1
   zBias:
-    overrideState: 0
-    value: 0.0001
+    overrideState: 1
+    value: 0.000154
   directLightingStrength:
     overrideState: 0
     value: 0
@@ -89,6 +136,34 @@ MonoBehaviour:
   quality:
     overrideState: 0
     value: 2
+--- !u!114 &-2897806528960721164
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d65e486e4de6e5448a8fbb43dc8756a0, type: 3}
+  m_Name: Grain
+  m_EditorClassIdentifier: 
+  active: 0
+  enabled:
+    overrideState: 1
+    value: 1
+  colored:
+    overrideState: 0
+    value: 1
+  intensity:
+    overrideState: 1
+    value: 1
+  size:
+    overrideState: 1
+    value: 3
+  lumContrib:
+    overrideState: 1
+    value: 1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -106,6 +181,8 @@ MonoBehaviour:
   - {fileID: -4042685958950521909}
   - {fileID: 6538121280530065933}
   - {fileID: -6065617294897290391}
+  - {fileID: -2897806528960721164}
+  - {fileID: -7261289862634491654}
 --- !u!114 &2793230579216337949
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -123,8 +200,8 @@ MonoBehaviour:
     overrideState: 1
     value: 1
   intensity:
-    overrideState: 0
-    value: 2.1
+    overrideState: 1
+    value: 1
   intensityX:
     overrideState: 0
     value: 1
@@ -192,7 +269,7 @@ MonoBehaviour:
     overrideState: 0
     value: 1
   temperature:
-    overrideState: 0
+    overrideState: 1
     value: 0
   tint:
     overrideState: 0
@@ -211,9 +288,9 @@ MonoBehaviour:
     value: 0
   postExposure:
     overrideState: 1
-    value: 0.39
+    value: 0.6
   contrast:
-    overrideState: 0
+    overrideState: 1
     value: 0
   mixerRedOutRedIn:
     overrideState: 0
