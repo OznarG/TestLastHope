@@ -1518,7 +1518,7 @@ SkinnedMeshRenderer:
   m_RootBone: {fileID: 8822995503384806417}
   m_AABB:
     m_Center: {x: 0.000990361, y: -0.029543787, z: 0.02290865}
-    m_Extent: {x: 0.549458, y: 0.9576175, z: 0.24765337}
+    m_Extent: {x: 0.549458, y: 0.84, z: 0.24765337}
   m_DirtyAABB: 0
 --- !u!1 &6298152020211490413
 GameObject:
@@ -1758,6 +1758,7 @@ GameObject:
   - component: {fileID: 2411647638644113814}
   - component: {fileID: 4233894294124953708}
   - component: {fileID: 3968616802748721905}
+  - component: {fileID: 2166409095163591460}
   - component: {fileID: 3282283051282905782}
   - component: {fileID: 5864111373671978630}
   - component: {fileID: 8574249214333844622}
@@ -1821,6 +1822,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Maxspeed: 2
   isGrounded: 0
+  attack: 0
+--- !u!114 &2166409095163591460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7004346078578954899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f744480ddabc7814091dd1b07fa31383, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  axe: {fileID: 0}
+  handpos: {fileID: 7382860604685712215}
 --- !u!114 &3282283051282905782
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1886,7 +1902,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.178
   m_Pitch: 1
   Loop: 0
   Mute: 0

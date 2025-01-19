@@ -5,7 +5,7 @@ using UnityEngine;
 public class sound : MonoBehaviour
 {
     public AudioClip Sound;
-    AudioSource audio;
+   new  AudioSource audio;
     public float StartTime = 4.5f;
     public float endTime = 5f;
 

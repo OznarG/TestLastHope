@@ -10,6 +10,7 @@ public class AnimatorCOntroller : MonoBehaviour
     private Animator animator;
     public bool isGrounded;
     private bool isRolling;
+    public bool attack = false;
 
     // Start is called before the first frame update
     void Start()
@@ -33,22 +34,23 @@ public class AnimatorCOntroller : MonoBehaviour
         float adjustedSpeed = speed * 3.5f;
         animator.SetFloat("speed", adjustedSpeed);
 
-       
-            if (Input.GetKeyDown(KeyCode.Space) && !isRolling)
-            {
 
-               
-                animator.SetBool("jump", true);
+        if (Input.GetKeyDown(KeyCode.Space) && !isRolling && !attack)
+        {
 
-            } else
+
+            animator.SetBool("jump", true);
+
+        }
+        else
         {
             animator.SetBool("jump", false);
         }
-                
-           
-                
-        
-        if(Input.GetKeyDown(KeyCode.LeftShift))
+
+
+
+
+        if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             Maxspeed = 1.0f;
             Debug.Log("Shift key held down, max speed set to 1.0f");
@@ -57,25 +59,49 @@ public class AnimatorCOntroller : MonoBehaviour
         {
 
             Maxspeed = 2.0f;
-           
-        }
-      
 
-       
-        if(Input.GetKeyDown(KeyCode.LeftControl) && move > 0.5f && !isRolling)
+        }
+
+
+
+        if (Input.GetKeyDown(KeyCode.LeftControl) && move > 0.5f && !isRolling && !attack)
         {
             isRolling = true;
             animator.SetBool("roll", true);
             Debug.Log("is rolling true");
-            
+
         }
-       
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            attack = true;
+            animator.SetBool("combat",true);
+        }
 
 
     }
-    public void EndRoll() {
-        isRolling = false; 
+    public void EndRoll()
+    {
+        isRolling = false;
         animator.SetBool("roll", false);
-        Debug.Log("is rolling false");
+        
+    }
+
+    void finishattack()
+    {
+        attack = false;
+        animator.SetBool("combat", false);
+       
+    }
+
+    void LateUpdate()
+    {
+        if (attack)
+        {
+            animator.SetLayerWeight(1, 1);
+        }
+        else
+        {
+            animator.SetLayerWeight(1, 0);
+        }
     }
 }
