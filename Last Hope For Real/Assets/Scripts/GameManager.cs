@@ -34,6 +34,12 @@ public class gameManager : MonoBehaviour
     public AudioSource inventoryAud;
     public AudioClip pickup;
 
+    [Header("----- Inventory Management -----")]
+    public GameObject raining;
+    public GameObject snow;
+    public bool isRaining;
+    public bool isSnowing;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -65,6 +71,22 @@ public class gameManager : MonoBehaviour
                 UnPauseGame();
 
             }
+        }
+        if(isRaining)
+        {
+            snow.SetActive(isRaining);
+        }
+        if(isSnowing)
+        {
+            snow.SetActive(isSnowing);
+        }
+        if (!isRaining)
+        {
+            snow.SetActive(isRaining);
+        }
+        if (!isSnowing)
+        {
+            snow.SetActive(isSnowing);
         }
     }
     public void PauseGame(bool cursorOn = true)
