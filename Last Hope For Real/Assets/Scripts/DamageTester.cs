@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DamageTester : MonoBehaviour
 {
-    [SerializeField] float _damage;
+    public float _damage;
     bool playerIn;
 
     private void OnTriggerEnter(Collider other)
