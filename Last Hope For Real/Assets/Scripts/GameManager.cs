@@ -72,6 +72,7 @@ public class gameManager : MonoBehaviour
 
             }
         }
+        //I HAVE TO FIX THIS ****************
         if(isRaining)
         {
             raining.SetActive(isRaining);

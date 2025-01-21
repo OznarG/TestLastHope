@@ -13,6 +13,10 @@ public class GreenPrototype_AI : MonoBehaviour
 
     private float attackingDistance;
 
+    [Header("- Enemy Stats -")]
+    [SerializeField] float enemyHealth;
+    [SerializeField] float attackingSpeed;
+
     private void Awake()
     {
         enemiesReferences = GetComponent<EnemiesReferences>();
