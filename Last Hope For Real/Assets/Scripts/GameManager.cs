@@ -74,7 +74,7 @@ public class gameManager : MonoBehaviour
         }
         if(isRaining)
         {
-            snow.SetActive(isRaining);
+            raining.SetActive(isRaining);
         }
         if(isSnowing)
         {
@@ -82,7 +82,7 @@ public class gameManager : MonoBehaviour
         }
         if (!isRaining)
         {
-            snow.SetActive(isRaining);
+            raining.SetActive(isRaining);
         }
         if (!isSnowing)
         {
