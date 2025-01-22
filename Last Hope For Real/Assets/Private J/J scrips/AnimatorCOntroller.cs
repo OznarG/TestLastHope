@@ -9,7 +9,7 @@ public class AnimatorCOntroller : MonoBehaviour
     [SerializeField] float Maxspeed = 2.0f;
     private Animator animator;
     public bool isGrounded;
-    private bool isRolling;
+    private bool isRolling = false;
     public bool attack = false;
 
     // Start is called before the first frame update
@@ -35,7 +35,7 @@ public class AnimatorCOntroller : MonoBehaviour
         animator.SetFloat("speed", adjustedSpeed);
 
 
-        if (Input.GetKeyDown(KeyCode.Space) && !isRolling && !attack)
+        if (Input.GetKeyDown(KeyCode.Space) && !attack )
         {
 
 
@@ -66,12 +66,19 @@ public class AnimatorCOntroller : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.LeftControl) && move > 0.5f && !isRolling && !attack)
         {
+            
+
             isRolling = true;
             animator.SetBool("roll", true);
-            Debug.Log("is rolling true");
+           
 
         }
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (isRolling)
+        {
+            Maxspeed = 1.0f;
+            Debug.Log("MAXSPEED true");
+        }
+        if (Input.GetKeyDown(KeyCode.Mouse0 ) && !attack)
         {
             attack = true;
             animator.SetBool("combat",true);
@@ -81,6 +88,7 @@ public class AnimatorCOntroller : MonoBehaviour
     }
     public void EndRoll()
     {
+        Maxspeed = 2.0f;
         isRolling = false;
         animator.SetBool("roll", false);
         

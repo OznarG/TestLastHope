@@ -1837,6 +1837,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   axe: {fileID: 0}
   handpos: {fileID: 7382860604685712215}
+  equipA: 0
 --- !u!114 &3282283051282905782
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1902,8 +1903,8 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.178
-  m_Pitch: 1
+  m_Volume: 0.096
+  m_Pitch: 0.75
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -1998,9 +1999,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fca1cb995745b644a189b59c27d7794, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Sound: {fileID: 8300000, guid: 586c0da187b86664f9a6b55ccb930220, type: 3}
-  StartTime: 4.5
-  endTime: 5
+  Sound: {fileID: 8300000, guid: bef877b5a6f12024ca4440a5e7aa5e04, type: 3}
+  Sound2: {fileID: 8300000, guid: 999d388a678685a47ba6b889704963b6, type: 3}
+  Sound3: {fileID: 8300000, guid: a4187fb5cda65de41ba73287af2021e6, type: 3}
+  StartTime2: 5.1
+  endTime2: 6.1
+  StartTime: 2.8
+  endTime: 3.1
+  Inventory: 0
 --- !u!1 &7062153555395563592
 GameObject:
   m_ObjectHideFlags: 0
