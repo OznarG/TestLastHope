@@ -18,7 +18,7 @@ public class sound : MonoBehaviour
 
     public float StartTime = 4.5f;
     public float endTime = 5f;
-    public bool Inventory;
+    public bool Inventory ;
     
 
     // Start is called before the first frame update
@@ -36,19 +36,22 @@ public class sound : MonoBehaviour
     {
         
 
-        if (Input.GetKeyDown(KeyCode.I) || Input.GetKeyDown(KeyCode.Escape) && Inventory)
+        if (Input.GetKeyDown(KeyCode.I) && Inventory || Input.GetKeyDown(KeyCode.Escape) && Inventory)
         {
-            Inventory = false;
-            audio.pitch = 1f;
-           
-            audio.clip = Sound3;
-            
-            audio.Play();
-            
-        } else if (Input.GetKeyDown(KeyCode.I) || Input.GetKeyDown(KeyCode.Escape) && !Inventory)
-        {
-            Inventory=true;
             audio.Stop();
+            Inventory = false;
+           
+            Debug.Log("Inventory false");
+            
+        } else if (Input.GetKeyDown(KeyCode.I) && !Inventory || Input.GetKeyDown(KeyCode.Escape) && !Inventory)
+        {
+           Inventory=true;
+            audio.pitch = 1f;
+
+            audio.clip = Sound3;
+
+            audio.Play();
+            Debug.Log("Inventory true");
         }
 
 

@@ -41,7 +41,7 @@ public class equip : MonoBehaviour
     void UnequipWeapon()
     {
         
-        axe.transform.localPosition = new Vector3(0.146f, 7, -0.051f);
+        axe.transform.localPosition = new Vector3(0.146f, 15, -0.051f);
         axe.transform.localRotation = Quaternion.Euler(84.9f, -26.58f, -119.3f);
         equipA = true;
     }
