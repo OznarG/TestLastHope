@@ -73,22 +73,26 @@ public class gameManager : MonoBehaviour
             }
         }
         //I HAVE TO FIX THIS ****************
-        if(isRaining)
-        {
-            raining.SetActive(isRaining);
+        if(raining != null && snow != null)
+            {
+            if(isRaining)
+            {
+                raining.SetActive(isRaining);
+            }
+            if(isSnowing)
+            {
+                snow.SetActive(isSnowing);
+            }
+            if (!isRaining)
+            {
+                raining.SetActive(isRaining);
+            }
+            if (!isSnowing)
+            {
+                snow.SetActive(isSnowing);
+            }
         }
-        if(isSnowing)
-        {
-            snow.SetActive(isSnowing);
-        }
-        if (!isRaining)
-        {
-            raining.SetActive(isRaining);
-        }
-        if (!isSnowing)
-        {
-            snow.SetActive(isSnowing);
-        }
+       
     }
     public void PauseGame(bool cursorOn = true)
     {
