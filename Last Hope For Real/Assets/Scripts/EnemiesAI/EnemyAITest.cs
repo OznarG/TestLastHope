@@ -45,7 +45,13 @@ public class EnemyAITest : MonoBehaviour
         topNode.Evaluate();
         if(topNode.nodeState == NodeState.FAILURE)
         {
+            Debug.Log("Nodefailled");
             SetColor(Color.black);
+        }
+        if (topNode.nodeState == NodeState.SUCCESS)
+        {
+            Debug.Log("Nodefailled");
+            SetColor(Color.grey);
         }
         currentHealth += Time.deltaTime * healRestoreRate;
     }

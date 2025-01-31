@@ -13,8 +13,13 @@ public class EnemiesReferences : MonoBehaviour
     public float pathUpdateDelay = 0.2f;
 
     private void Awake()
-    {
-        animator = GetComponent<Animator>();
+    {     
+        animator = gameObject.GetComponentInChildren<Animator>();
+        
+        if (animator != null)
+        {
+            Debug.Log("Now active");
+        }
         navMeshAgent = GetComponent<NavMeshAgent>();
     }
 }

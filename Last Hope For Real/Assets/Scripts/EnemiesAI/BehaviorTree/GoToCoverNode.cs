@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class GoToCoverNode : Node
 {
-    private Transform target;
+
     private NavMeshAgent agent;
     public EnemyAITest ai;
 
@@ -14,6 +14,7 @@ public class GoToCoverNode : Node
         
         this.agent = agent;
         this.ai = ai;
+        
     }
 
     public override NodeState Evaluate()
@@ -24,11 +25,12 @@ public class GoToCoverNode : Node
             return NodeState.FAILURE;
         }
         ai.SetColor(Color.yellow);
-        float distance = Vector3.Distance(target.position, agent.transform.position);
+        float distance = Vector3.Distance(cover.position, agent.transform.position);
+        Debug.Log(distance);
         if(distance > 0.2f)
         {
             agent.isStopped = false;
-            agent.SetDestination(target.position);
+            agent.SetDestination(cover.position);
             return NodeState.RUNNING;
         }
         else

@@ -3,25 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class ChaseNode : Node
+public class DFChaseNode : Node
 {
     private Transform target;
     private NavMeshAgent agent;
-    public EnemyAITest ai;
+    public DragonFlacoAI ai;
 
-    public ChaseNode(Transform target, NavMeshAgent agent, EnemyAITest ai)
+    public DFChaseNode(Transform transform, NavMeshAgent agent, DragonFlacoAI ai)
     {
-        this.target = target;
+        this.target = transform;
         this.agent = agent;
         this.ai = ai;
     }
 
     public override NodeState Evaluate()
-    {
-        ai.SetColor(Color.yellow);
+    {       
         float distance = Vector3.Distance(target.position, agent.transform.position);
-        if(distance > /*0.2f*/ agent.stoppingDistance)
+        if (distance > ai.enemiesReferences.navMeshAgent.stoppingDistance)
         {
+           
             agent.isStopped = false;
             agent.SetDestination(target.position);
             return NodeState.RUNNING;
