@@ -106,6 +106,7 @@ public class AnimatorCOntroller : MonoBehaviour
         if (attack)
         {
             animator.SetLayerWeight(1, 1);
+
         }
         else
         {

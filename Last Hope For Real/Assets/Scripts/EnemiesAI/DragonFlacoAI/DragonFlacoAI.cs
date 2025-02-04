@@ -7,6 +7,7 @@ public class DragonFlacoAI : MonoBehaviour, IDamage
 {
 
     [Header("----- Enemy References -----")]
+    public GameObject dropItem;
     public EnemyStats enemyStats;
     public DamageTester damageSourceScript;
     public GameObject jawDamageSource;
@@ -41,7 +42,7 @@ public class DragonFlacoAI : MonoBehaviour, IDamage
             Debug.Log("Nodefailled");
         }
         enemiesReferences.animator.SetFloat("Speed", enemiesReferences.navMeshAgent.desiredVelocity.sqrMagnitude);
-       // LookAtTarget();
+        // LookAtTarget();
     }
     private void UpdatePath()
     {
@@ -126,5 +127,10 @@ public class DragonFlacoAI : MonoBehaviour, IDamage
     {
         Debug.Log("Draco took damage");
         enemyStats.health -= damage;
+        if (enemyStats.health < 0)
+        {
+            Instantiate(dropItem, transform.position, Quaternion.identity);
+            Destroy(gameObject, 2);
+        }
     }
 }

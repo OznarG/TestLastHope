@@ -240,6 +240,10 @@ PrefabInstance:
       propertyPath: cameraThird
       value: 
       objectReference: {fileID: 1084874127}
+    - target: {fileID: 3282283051282905782, guid: efd0016122f28a447a0cbaf8606fa40a, type: 3}
+      propertyPath: attackSource
+      value: 
+      objectReference: {fileID: 1680179382}
     - target: {fileID: 7004346078578954899, guid: efd0016122f28a447a0cbaf8606fa40a, type: 3}
       propertyPath: m_Name
       value: Rio 1 (1)
@@ -2289,7 +2293,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b580be8466427ff449daa055a2225389, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 0
+  health: 100
   speed: 0
   enemyHealth: 0
   attackingSpeed: 0
@@ -2316,10 +2320,10 @@ SphereCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_Radius: 6.19
-  m_Center: {x: 0, y: 1.21, z: -0.44}
+  m_Center: {x: 0, y: 6.84, z: -0.44}
 --- !u!54 &1672048931
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2343,7 +2347,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -2409,9 +2413,9 @@ SphereCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.68
+  m_Radius: 0.41
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1693654437
 PrefabInstance:
@@ -5653,6 +5657,10 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1565485123}
+    - target: {fileID: 8786734961743886726, guid: f0d6f368485ce1d4089e0ead3ed0031f, type: 3}
+      propertyPath: dropItem
+      value: 
+      objectReference: {fileID: 101830015148044865, guid: 47b3c60c7936f7c448607526dcc973df, type: 3}
     - target: {fileID: 8786734961743886726, guid: f0d6f368485ce1d4089e0ead3ed0031f, type: 3}
       propertyPath: enemyStats
       value: 
