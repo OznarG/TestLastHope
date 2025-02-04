@@ -3,37 +3,30 @@ using System.Collections.Generic;
 using UnityEngine;
 using static UnityEditor.Progress;
 
-public class DragonFlacoAI : MonoBehaviour
+public class DragonFlacoAI : MonoBehaviour, IDamage
 {
-    [SerializeField] int health;
-    [SerializeField] float speed;
 
+    [Header("----- Enemy References -----")]
+    public EnemyStats enemyStats;
+    public DamageTester damageSourceScript;
+    public GameObject jawDamageSource;
     public Transform target;
-
     public EnemiesReferences enemiesReferences;
-
+    [SerializeField] public Transform[] availableWayPoints;
+    private Node topNode;
     private float pathUpdateDeadLine;
 
-    private float attackingDistance;
-    [SerializeField] public Transform[] availableWayPoints;
-    [Header("- Enemy Stats -")]
-    [SerializeField] float enemyHealth;
-    [SerializeField] float attackingSpeed;
-    private Node topNode;
-    public bool playerInRange = false;
-    public bool roaming = false;
-    public bool attacking = false;
-    public bool canAttack = true;
-
-    //bool playerIn = false;
+    
     private void Awake()
     {
         enemiesReferences = GetComponent<EnemiesReferences>();
+        damageSourceScript = jawDamageSource.GetComponent<DamageTester>();
+        damageSourceScript._damage = 20;
     }
     // Start is called before the first frame update
     void Start()
     {
-        attackingDistance = enemiesReferences.navMeshAgent.stoppingDistance;
+        enemyStats.attackingDistance = enemiesReferences.navMeshAgent.stoppingDistance;
         ConstructBehaviourTree();
     }
     void Update()
@@ -41,36 +34,20 @@ public class DragonFlacoAI : MonoBehaviour
         topNode.Evaluate();
         if (topNode.nodeState == NodeState.FAILURE)
         {
-            Debug.Log("Nodefailled");
-            //SetColor(Color.black);
+            Debug.Log("Nodefailled");         
         }
         if (topNode.nodeState == NodeState.SUCCESS)
         {
             Debug.Log("Nodefailled");
-            //SetColor(Color.grey);
         }
         enemiesReferences.animator.SetFloat("Speed", enemiesReferences.navMeshAgent.desiredVelocity.sqrMagnitude);
-
-        //if (target != null)
-        //{
-        //    bool inRange = Vector3.Distance(transform.position, target.position) < attackingDistance;
-        //    if (inRange)
-        //    {
-        //        LookAtTarget();
-        //    }
-        //    else
-        //    {
-        //        UpdatePath();
-        //    }
-        //    enemiesReferences.animator.SetBool("Attacking", inRange);
-        //}
-        //enemiesReferences.animator.SetFloat("Speed", enemiesReferences.navMeshAgent.desiredVelocity.sqrMagnitude);
+       // LookAtTarget();
     }
     private void UpdatePath()
     {
         if (Time.time >= pathUpdateDeadLine)
         {
-            Debug.Log("Updating Path");
+            //Debug.Log("Updating Path");
             pathUpdateDeadLine = Time.time + enemiesReferences.pathUpdateDelay;
             enemiesReferences.navMeshAgent.SetDestination(target.position);
         }
@@ -86,24 +63,16 @@ public class DragonFlacoAI : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player")/* && playerIn == false*/)
+        if (other.CompareTag("Player"))
         {
-            //Debug.Log("player just got in");
-            //Debug.Log(playerInRange);
-            playerInRange = true;
-            //Debug.Log(playerInRange);
-
+            enemyStats.playerInRange = true;
         }
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player")/* && playerIn == false*/)
+        if (other.CompareTag("Player"))
         {
-            //Debug.Log("player just got out");
-            //Debug.Log(playerInRange);
-            playerInRange = false;
-            //Debug.Log(playerInRange);
-
+            enemyStats.playerInRange = false;
         }
     }
 
@@ -137,17 +106,25 @@ public class DragonFlacoAI : MonoBehaviour
 
     public void BasicAttackDone()
     {
-        Debug.Log("Attack Done");
-        attacking = false;
-        Debug.Log(attacking);
-        enemiesReferences.animator.SetBool("Attacking",attacking);
+        //Debug.Log("Attack Done");
+        enemyStats.attacking = false;
+        //Debug.Log(enemyStats.attacking);
+        enemiesReferences.animator.SetBool("Attacking",enemyStats.attacking);
+        jawDamageSource.SetActive(false);
         StartCoroutine(attackCoolDown());
     }
+
 
     IEnumerator attackCoolDown()
     {
         
         yield return new WaitForSeconds(2);
-        canAttack = true;
+        enemyStats.canAttack = true;
+    }
+
+    public void TakeDamage(float damage)
+    {
+        Debug.Log("Draco took damage");
+        enemyStats.health -= damage;
     }
 }

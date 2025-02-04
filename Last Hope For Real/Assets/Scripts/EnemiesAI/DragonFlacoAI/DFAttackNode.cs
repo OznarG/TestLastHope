@@ -19,16 +19,17 @@ public class DFAttackNode : Node
 
     public override NodeState Evaluate()
     {
-        Debug.Log(ai.canAttack);
-        if(ai.canAttack == true)
+        //Debug.Log(ai.enemyStats.canAttack);
+        if(ai.enemyStats.canAttack == true)
         {
-            ai.attacking = true;
-            ai.canAttack = false;
-            Debug.Log("Attacking before animation");
-            ai.enemiesReferences.animator.SetBool("Attacking", ai.attacking);
+            ai.enemyStats.attacking = true;
+            ai.enemyStats.canAttack = false;
+            ai.jawDamageSource.SetActive(true);
+            //Debug.Log("Attacking before animation");
+            ai.enemiesReferences.animator.SetBool("Attacking", ai.enemyStats.attacking);
         }
 
-        if (ai.attacking == true)
+        if (ai.enemyStats.attacking == true)
         {
             
             //agent.isStopped = false;

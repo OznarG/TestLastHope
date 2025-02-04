@@ -15,7 +15,7 @@ public class NotInRangeNode : Node
     public override NodeState Evaluate()
     {
 
-        return ai.playerInRange ? NodeState.FAILURE : NodeState.SUCCESS;
+        return ai.enemyStats.playerInRange ? NodeState.FAILURE : NodeState.SUCCESS;
     }
 
 }

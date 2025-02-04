@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour, IDamage
 {
     [Header("References")]
+    public GameObject attackSource;
     public  CharacterController controller;
     [SerializeField] private Transform cameraThird;
 
@@ -185,5 +186,15 @@ public class PlayerController : MonoBehaviour, IDamage
             gameManager.instance.selectedSlot.GetComponentInParent<SlotBackground>().UpdateSelection();
         }
         return false;
+    }
+
+    public void AttackingStart()
+    {
+        attackSource.SetActive(true);
+    }
+
+    public void ArrackingDone()
+    {
+        attackSource.SetActive(false);
     }
 }

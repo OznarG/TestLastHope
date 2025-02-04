@@ -14,9 +14,8 @@ public class InSightNode : Node
         
     public override NodeState Evaluate()
     {
-        //Debug.Log("InCondition");
-        Debug.Log("in range?" + ai);
-        return ai.playerInRange ? NodeState.SUCCESS : NodeState.FAILURE;
+ 
+        return ai.enemyStats.playerInRange ? NodeState.SUCCESS : NodeState.FAILURE;
     }
 
 }

@@ -20,7 +20,7 @@ public class DFRoamNode : Node
     public override NodeState Evaluate()
     {
         
-        if (ai.roaming == false)
+        if (ai.enemyStats.roaming == false)
         {
            path = ai.GetPath();
            
@@ -37,14 +37,14 @@ public class DFRoamNode : Node
             
             agent.isStopped = false;
             agent.SetDestination(path.position);
-            ai.roaming = true;           
+            ai.enemyStats.roaming = true;           
             return NodeState.RUNNING;
         }
         else
         {
             
             agent.isStopped = true;
-            ai.roaming = false;
+            ai.enemyStats.roaming = false;
             return NodeState.SUCCESS;
         }
         
